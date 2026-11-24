@@ -1,0 +1,66 @@
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <h2>Sign Up Form</h2>
+
+    <form id="signupForm">
+
+        Name:
+        <input type="text" id="name"><br><br>
+
+        Email:
+        <input type="email" id="email"><br><br>
+
+        Password:
+        <input type="password" id="password"><br><br>
+
+        <button type="submit">Sign Up</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+
+        // Get form using DOM
+        document.getElementById("signupForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            // Get input values
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Form validation
+            if(name == "" || email == "" || password == "") {
+
+                document.getElementById("message").innerHTML =
+                "Please fill all fields";
+
+            }
+            else {
+
+                // Save details in Local Storage
+                localStorage.setItem("name", name);
+                localStorage.setItem("email", email);
+                localStorage.setItem("password", password);
+
+                document.getElementById("message").innerHTML =
+                "Signup Successful!";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
